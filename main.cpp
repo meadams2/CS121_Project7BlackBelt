@@ -19,9 +19,9 @@ void findStudent(std::vector<std::shared_ptr<Student>>& students);
 void delStudents(std::vector<std::shared_ptr<Student>>& students);
 
 void sortStudents(std::vector<std::shared_ptr<Student>>& students);
-bool sortByFirstName(Student& a, Student& b);
-bool sortByLastName(Student& a, Student& b);
-bool sortByCreditHours(Student& a, Student& b);
+bool sortByFirstName(std::shared_ptr<Student>& a, std::shared_ptr<Student>& b);
+bool sortByLastName(std::shared_ptr<Student>& a, std::shared_ptr<Student>& b);
+bool sortByCreditHours(Student& a, std::shared_ptr<Student>& b);
 
 std::string menu();
 std::string sortMenu();
