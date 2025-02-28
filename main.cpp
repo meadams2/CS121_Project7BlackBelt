@@ -15,7 +15,14 @@ void printStudents(std::vector<std::shared_ptr<Student>>& students);
 void showStudentNames(std::vector<std::shared_ptr<Student>>& students);
 void findStudent(std::vector<std::shared_ptr<Student>>& students);
 void delStudents(std::vector<std::shared_ptr<Student>>& students);
+
+void sortStudents(std::vector<std::shared_ptr<Student>>& students);
+bool sortByFirstName(Student& a, Student& b);
+bool sortByLastName(Student& a, Student& b);
+bool sortByCreditHours(Student& a, Student& b);
+
 std::string menu();
+std::string sortMenu();
 
 int main(){
 	std::vector<std::shared_ptr<Student>> students;
@@ -41,7 +48,9 @@ int main(){
 		else if (userInput == "3"){
 			findStudent(students);
 		} //End find student condition
-
+		
+		else if (userInput == "4"){
+			std::string sortChoice = sortMenu();
 	} //end while loop
 
 } //end main
@@ -53,12 +62,24 @@ std::string menu(){
 	std::cout << "1) Print all student names" << std::endl;
 	std::cout << "2) Print all student data" << std::endl;
 	std::cout << "3) Find a student" << std::endl;
-
-	std::cout << "Please choose 0-3: ";
+	std::cout << "4) Sort students" << std::endl;
+	std::cout << "Please choose 0-4: ";
 	std::cin >> userInput;
 
 	return userInput;
 } //end menu()
+
+std::string sortMenu(){
+	std::string sortChoice;
+	std::cout << "How would you like to sort?" << std::endl;
+	std::cout << "0) First name" << std::endl;
+	std::cout << "1) Last name" << std::endl;
+	std::cout << "2) Credit Hours" << std::endl;
+	std::cout << "Please choose 0-2: ";
+
+	std::cin >> sortChoice;
+	return sortChoice;
+} //end sortMenu()
 
 void loadStudents(std::vector<std::shared_ptr<Student>>& students){
 	std::ifstream inFile;
