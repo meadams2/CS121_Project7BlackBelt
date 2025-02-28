@@ -1,11 +1,12 @@
 // main.cpp
 
-#include <algorithm>
-#include <memory>
-#include <vector>
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+#include <memory>
+#include <vector>
+#include <algorithm>
 
 #include "date.h"
 #include "address.h"
@@ -155,14 +156,14 @@ void sortStudents(std::vector<std::shared_ptr<Student>>& students){
 	printStudents(students);
 } //end sortStudents()
 
-bool sortByFirstName(Student& a, Student& b){
-	return (a.getFirstName() < b.getFirstName());
+bool sortByFirstName(std::shared_ptr<Student>& a, std::shared_ptr<Student>& b){
+	return (a->getFirstName() < b->getFirstName());
 } //end sortByFirstName
 
-bool sortByLastName(Student& a, Student& b){
-	return (a.getLastName() < b.getLastName());
+bool sortByLastName(std::shared_ptr<Student>& a, std::shared_ptr<Student>& b){
+	return (a->getLastName() < b->getLastName());
 } //end sortByLastName
 
-bool sortByCreditHours(Student& a, Student& b){
-	return (a.getCreditHours() < b.getCreditHours());
+bool sortByCreditHours(std::shared_ptr<Student>& a, std::shared_ptr<Student>& b){
+	return (a->getCreditHours() < b->getCreditHours());
 } //end sortByCreditHours
