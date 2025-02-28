@@ -1,5 +1,6 @@
 // main.cpp
 
+#include <algorithm>
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -50,7 +51,8 @@ int main(){
 		} //End find student condition
 		
 		else if (userInput == "4"){
-			std::string sortChoice = sortMenu();
+			sortStudents(students);
+		} //End sortStudent condition
 	} //end while loop
 
 } //end main
@@ -135,3 +137,32 @@ void findStudent(std::vector<std::shared_ptr<Student>>& students){
 		std::cout << std::endl;
 	} //end for loop
 } // end findStudent()
+
+void sortStudents(std::vector<std::shared_ptr<Student>>& students){
+	std::string sortChoice = sortMenu();
+	if (sortChoice == "0"){
+		std::sort(students, sortByFirstName);
+	} //end firstName sort condition
+
+	else if (sortChoice == "1"){
+		std::sort(students, sortByLastName);
+	} //end lastName sort condition
+
+	else if (sortChoice == "2"){
+		std::sort(students, sortByCreditHours);
+	} //end creditHours sort condition
+
+	printStudents(students);
+} //end sortStudents()
+
+bool sortByFirstName(Student& a, Student& b){
+	return (a.getFirstName() < b.getFirstName());
+} //end sortByFirstName
+
+bool sortByLastName(Student& a, Student& b){
+	return (a.getLastName() < b.getLastName());
+} //end sortByLastName
+
+bool sortByCreditHours(Student& a, Student& b){
+	return (a.getCreditHours() < b.getCreditHours());
+} //end sortByCreditHours
