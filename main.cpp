@@ -141,15 +141,15 @@ void findStudent(std::vector<std::shared_ptr<Student>>& students){
 void sortStudents(std::vector<std::shared_ptr<Student>>& students){
 	std::string sortChoice = sortMenu();
 	if (sortChoice == "0"){
-		std::sort(students, sortByFirstName);
+		std::sort(students.begin(), students.end(), sortByFirstName);
 	} //end firstName sort condition
 
 	else if (sortChoice == "1"){
-		std::sort(students, sortByLastName);
+		std::sort(students.begin(), students.end(), sortByLastName);
 	} //end lastName sort condition
 
 	else if (sortChoice == "2"){
-		std::sort(students, sortByCreditHours);
+		std::sort(students.begin(), students.end(), sortByCreditHours);
 	} //end creditHours sort condition
 
 	printStudents(students);
